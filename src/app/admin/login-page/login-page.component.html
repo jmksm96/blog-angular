@@ -38,7 +38,7 @@
       </small>
       <small *ngIf="form.get('password')?.errors?.minlength">
         <!-- Пароль должен быть не менее
-        {{form.get('password').minlength.requiredLength}}
+        {{form.get('password')?.minlength.requiredLength}}
         символов.
         Сейчас он
         {{form.get('password').minlength.actualLength}}
