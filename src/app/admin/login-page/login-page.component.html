@@ -37,12 +37,12 @@
         Обязательное поле
       </small>
       <small *ngIf="form.get('password')?.errors?.minlength">
-        <!-- Пароль должен быть не менее
-        {{form.get('password')?.minlength.requiredLength}}
+        Пароль должен быть не менее
+        {{form.get('password')?.errors?.minlength.requiredLength}}
         символов.
         Сейчас он
-        {{form.get('password').minlength.actualLength}}
-        символа. -->
+        {{form.get('password')?.errors?.minlength.actualLength}}
+        символа.
       </small>
     </div>
   </div>
