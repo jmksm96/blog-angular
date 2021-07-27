@@ -9,7 +9,8 @@ import { FbAuthResponse, User } from '../interface';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  get token(): string {
+  get token(): string | null {
+    //@ts-ignore
     const expDate = new Date(localStorage.getItem('fb-token-exp'));
     if (new Date() > expDate) {
       this.logout();
@@ -21,11 +22,11 @@ export class AuthService {
   login(user: User): Observable<any> {
     user.returnSecureToken = true;
     return this.http
-      .post(
+      .post<FbAuthResponse>(
         `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`,
         user
       )
-      .pipe(tap(this.setToken));
+      .pipe(tap(res => this.setToken(res)));
   }
 
   logout() {
