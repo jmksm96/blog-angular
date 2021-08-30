@@ -10,12 +10,14 @@ import { AdminLayoutComponent } from './shared/components/admin-layout/admin-lay
 import { AuthGuard } from './shared/services/auth.guard';
 import { AuthService } from './shared/services/auth.service';
 import { SharedModule } from './shared/shared.module';
+import {ValdemortModule} from 'ngx-valdemort';
 
 @NgModule({
   declarations: [
     AdminLayoutComponent,
     LoginPageComponent,
     DashboardPageComponent,
+    CreatePageComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,7 @@ import { SharedModule } from './shared/shared.module';
         path: '',
         component: AdminLayoutComponent,
         children: [
-          { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
+          {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
           {
             path: 'login',
             component: LoginPageComponent,
@@ -50,6 +52,7 @@ import { SharedModule } from './shared/shared.module';
         ],
       },
     ]),
+    ValdemortModule,
   ],
   exports: [RouterModule],
   providers: [AuthService, AuthGuard],

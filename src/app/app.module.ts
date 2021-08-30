@@ -7,6 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
 import { PostComponent } from './shared/components/post/post.component';
+import {ValdemortModule} from 'ngx-valdemort';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { PostComponent } from './shared/components/post/post.component';
     PostPageComponent,
     PostComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule],
+    imports: [BrowserModule, AppRoutingModule, SharedModule, ValdemortModule],
   providers: [],
   bootstrap: [AppComponent],
 })
