@@ -1,11 +1,8 @@
-<div *ngIf="posts.length"
-     else
-     lodaing>
-  <ng-template #loading>
-    Идёт загрузка </ng-template>
+<div *ngIf="posts.length; else empty">
   <div class="form-control">
     <input type="text"
-           placeholder="Найти пост">
+           placeholder="Найти пост"
+           [(ngModel)]="searchStr ">
   </div>
   <table>
     <thead>
@@ -18,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let post of posts; let idx = index">
+      <tr *ngFor="let post of posts | searchPosts:searchStr; let idx = index">
         <td>{{idx + 1}}</td>
         <td>{{post.author}}</td>
         <td>{{post.title}}</td>
@@ -32,6 +29,7 @@
       </tr>
     </tbody>
   </table>
-  <ng-template #name>Идёт загрузка</ng-template>
-
 </div>
+
+<ng-template #empty>
+  Здесь пока пусто :) </ng-template>
