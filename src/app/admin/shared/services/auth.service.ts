@@ -5,15 +5,14 @@ import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { FbAuthResponse, User } from '../../../shared/interface';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthService {
   public error$: Subject<string> = new Subject<string>();
 
   constructor(private http: HttpClient) {}
 
   get token(): string | null {
-    //@ts-ignore
-    const expDate = new Date(localStorage.getItem('fb-token-exp'));
+    const expDate = new Date(localStorage.getItem('fb-token-exp') || '');
     if (new Date() > expDate) {
       this.logout();
       return null;

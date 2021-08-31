@@ -10,7 +10,6 @@ import { EditPageComponent } from './edit-page/edit-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AdminLayoutComponent } from './shared/components/admin-layout/admin-layout.component';
 import { AuthGuard } from './shared/services/auth.guard';
-import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -55,6 +54,6 @@ import { AuthService } from './shared/services/auth.service';
     ValdemortModule,
   ],
   exports: [RouterModule],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthGuard],
 })
 export class AdminModule {}
