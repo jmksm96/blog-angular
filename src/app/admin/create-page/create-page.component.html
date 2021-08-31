@@ -7,10 +7,11 @@
            id='title'
            formControlName="title">
     <val-errors controlName="title"
-             [ngStyle]="{'color':'red'}"> </val-errors>
+                [ngStyle]="{'color':'red'}"> </val-errors>
   </div>
   <div class="form-control">
     <label for="author">Текст поста</label>
+    <quill-editor formControlName="text"></quill-editor>
     <input type="text"
            id='author'
            formControlName="author">
@@ -19,5 +20,5 @@
   </div>
   <button type="submit"
           class=" btn btn-block btn-dark"
-  [disabled]="postForm.invalid">Отправить</button>
+          [disabled]="postForm.invalid">Отправить</button>
 </form>

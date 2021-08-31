@@ -1,3 +1,6 @@
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.snow.css';
+
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 :root {
@@ -79,7 +82,7 @@ img {
   }
 
   &-content {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -211,7 +214,7 @@ img {
 .form-control {
   display: block;
   color: #888;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
 
   &.invalid {
     color: var(--primary-color);
