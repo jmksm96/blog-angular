@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { SharedModule } from './admin/shared/shared.module';
+import { ValdemortModule } from 'ngx-valdemort';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
 import { PostComponent } from './shared/components/post/post.component';
-import {ValdemortModule} from 'ngx-valdemort';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import {ValdemortModule} from 'ngx-valdemort';
     PostPageComponent,
     PostComponent,
   ],
-    imports: [BrowserModule, AppRoutingModule, SharedModule, ValdemortModule],
+  imports: [BrowserModule, AppRoutingModule, SharedModule, ValdemortModule],
   providers: [],
   bootstrap: [AppComponent],
 })
