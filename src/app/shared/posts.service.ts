@@ -22,6 +22,10 @@ export class PostService {
     );
   }
 
+  remove(id: string | undefined): Observable<void> {
+    return this.http.delete<void>(`${environment.fDBUrlL}/post/${id}.json`);
+  }
+
   getAllPosts(): Observable<Post[]> {
     return this.http.get(`${environment.fDBUrlL}/posts.json`).pipe(
       map((res: { [key: string]: any }) => {
