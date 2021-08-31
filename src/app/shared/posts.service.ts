@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Post } from 'src/environments/interface';
-import { environment } from './../../environments/environment.prod';
+import { environment } from '../../environments/environment.prod';
 import { FbCreateResponse } from './interface';
 
 @Injectable({ providedIn: 'root' })
@@ -26,6 +26,9 @@ export class PostService {
     return this.http.delete<void>(`${environment.fDBUrlL}/posts/${id}.json`);
   }
 
+  update(post:Post):Observable<Post>{
+    return this.http.patch<Post>(`${environment.fDBUrlL}/posts/${post.id}.json`, post)
+  }
   getById(id: string): Observable<Post> {
     return this.http.get<Post>(`${environment.fDBUrlL}/posts/${id}.json`).pipe(
       map((post: Post) => {
