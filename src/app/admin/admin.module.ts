@@ -18,6 +18,7 @@ import { AuthGuard } from './shared/services/auth.guard';
     LoginPageComponent,
     DashboardPageComponent,
     CreatePageComponent,
+    EditPageComponent,
     SearchPipe,
   ],
   imports: [

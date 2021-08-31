@@ -1,1 +1,24 @@
-<p>edit-page works!</p>
+<div *ngIf="form; else loading">
+  <form [formGroup]="form"
+        (ngSubmit)="submit()">
+    <div class="form-control">
+      <label for="title">Название поста</label>
+      <input type="text"
+             id='title'
+             formControlName="title">
+      <val-errors controlName="title"
+                  [ngStyle]="{'color':'red'}"> </val-errors>
+    </div>
+    <div class="form-control">
+      <quill-editor formControlName="text"></quill-editor>
+      <val-errors controlName="author"
+                  [ngStyle]="{'color':'red'}"> </val-errors>
+    </div>
+    <button type="submit"
+            class="btn btn-block btn-danger"
+            [disabled]="form.invalid">Обновить</button>
+  </form>
+</div>
+
+<ng-template #loading>
+  Идёт загрузка...</ng-template>
