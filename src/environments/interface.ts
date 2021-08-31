@@ -10,4 +10,5 @@ export interface Post {
   text: string;
   date: any;
   name?: string | undefined;
+  id?: string;
 }

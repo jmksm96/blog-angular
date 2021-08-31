@@ -11,13 +11,25 @@ export class PostService {
   constructor(private http: HttpClient) {}
 
   create(post: Post): Observable<Post> {
-    return this.http.post<Post>(`${environment.fDBUrlL}posts.json`, post).pipe(
+    return this.http.post<Post>(`${environment.fDBUrlL}/posts.json`, post).pipe(
       map((res: FbCreateResponse) => {
         return {
           ...post,
           id: res.name,
           date: new Date(),
         };
+      })
+    );
+  }
+
+  getAllPosts(): Observable<Post[]> {
+    return this.http.get(`${environment.fDBUrlL}/posts.json`).pipe(
+      map((res: { [key: string]: any }) => {
+        return Object.keys(res).map(key => ({
+          ...res[key],
+          id: key,
+          date: new Date(res[key].date),
+        }));
       })
     );
   }
