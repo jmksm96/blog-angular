@@ -11,6 +11,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { AdminLayoutComponent } from './shared/components/admin-layout/admin-layout.component';
 import { SearchPipe } from './shared/search.pipe';
 import { AuthGuard } from './shared/services/auth.guard';
+import { AlertComponent } from './shared/components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AuthGuard } from './shared/services/auth.guard';
     CreatePageComponent,
     EditPageComponent,
     SearchPipe,
+    AlertComponent,
   ],
   imports: [
     CommonModule,
