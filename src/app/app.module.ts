@@ -10,6 +10,11 @@ import { AuthInterceptor } from './shared/auth.interceptor';
 import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
 import { PostComponent } from './shared/components/post/post.component';
 import { SharedModule } from './shared/shared.module';
+import {registerLocaleData} from "@angular/common";
+import ruLocale from "@angular/common/locales/ru";
+
+
+registerLocaleData(ruLocale, 'ru')
 
 const INTERCEPTOR_PROVIDER = {
   provide: HTTP_INTERCEPTORS,
